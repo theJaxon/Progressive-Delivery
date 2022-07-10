@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: super-ms-blue-green
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: argo-rollouts.io
+    http:
+      paths:
+      - path: /blue-green
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: super-ms-active
+            port: 
+              number: 80
+      - path: /canary
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: super-ms-canary
+            port: 
+              number: 80

@@ -1,0 +1,38 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: rollouts-demo
+  labels:
+    ms: super-ms
+spec:
+  replicas: 2
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      ms: super-ms
+  template:
+    metadata:
+      labels:
+        ms: super-ms
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+          ports:
+          - containerPort: 80
+          volumeMounts:
+          - name: blue-config
+            mountPath: /usr/share/nginx/html
+      volumes:
+      - name: blue-config
+        configMap:
+          name: blue-config
+      - name: green-config
+        configMap:
+          name: green-config
+  strategy:
+    blueGreen:
+      activeService: super-ms-active
+      previewService: super-ms-preview
+      autoPromotionEnabled: false
+
