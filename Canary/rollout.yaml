@@ -1,0 +1,40 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: rollouts-demo
+  labels:
+    ms: super-ms
+    strategy: canary
+spec:
+  replicas: 5
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      ms: super-ms
+      strategy: canary
+  template:
+    metadata:
+      labels:
+        ms: super-ms
+        strategy: canary
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+          ports:
+          - containerPort: 80
+          volumeMounts:
+          - name: v1-config
+            mountPath: /usr/share/nginx/html
+      volumes:
+      - name: v1-config
+        configMap:
+          name: v1-config
+      - name: v2-config
+        configMap:
+          name: v2-config
+  strategy:
+    canary: 
+      steps:
+      - setWeight: 20
+      - pause: {}

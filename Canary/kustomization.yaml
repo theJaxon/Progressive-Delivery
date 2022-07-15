@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- service.yaml
+- rollout.yaml
+
+configMapGenerator:
+- name: v1-config
+  files:
+  - v1-conf/index.html
+- name: v2-config
+  files:
+  - v2-conf/index.html

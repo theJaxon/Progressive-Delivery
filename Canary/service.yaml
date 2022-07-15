@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: super-ms
+  labels:
+    ms: super-ms
+    strategy: canary
+spec:
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    ms: super-ms
+    strategy: canary
+  type: ClusterIP
