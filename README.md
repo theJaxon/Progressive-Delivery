@@ -22,3 +22,4 @@ Experimenting with Progressive delivery approach in Kubernetes by using Argo Rol
 ### References
 - [Simple Kubernetes blue-green deployments](https://blog.nillsf.com/index.php/2019/11/10/simple-kubernetes-blue-green-deployments/) - Blog post explaining how to manually implement blue-green deployment strategy by changing `service selectors`
 - [Progressive Delivery in Kubernetes - Carlos Sanchez, Adobe & Viktor Farcic, CloudBees](https://www.youtube.com/watch?v=Jf29YXu1Q48)
+- [How Intuit Does Canary and Blue Green Deployments with a K8s Controller - Daniel Thomson](https://www.youtube.com/watch?v=yeVkTTO9nOA)
