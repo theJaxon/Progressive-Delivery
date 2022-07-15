@@ -41,6 +41,8 @@ for i in {1..5}; do curl --proxy http://192.160:32703 argo-rollouts.io/canary &&
 </html>
 ```
 
+![Revision-1](https://github.com/theJaxon/Progressive-Delivery/blob/main/etc/Canary/Revision-1.jpg)
+
 ---
 
 #### Introducing change to the Rollout
@@ -83,3 +85,5 @@ for i in {1..5}; do curl --proxy http://192.168.100.10:32703 argo-rollouts.io/ca
 <body> <h3>VERSION 2</h3> </body>
 </html>
 ```
+
+![Revision-2](https://github.com/theJaxon/Progressive-Delivery/blob/main/etc/Canary/Revision-2.jpg)
