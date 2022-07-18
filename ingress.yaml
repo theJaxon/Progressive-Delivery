@@ -9,11 +9,18 @@ spec:
   - host: argo-rollouts.io
     http:
       paths:
-      - path: /blue-green
+      - path: /blue-green/active
         pathType: ImplementationSpecific
         backend:
           service:
             name: super-ms-active
+            port: 
+              number: 80
+      - path: /blue-green/preview
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: super-ms-preview
             port: 
               number: 80
       - path: /canary
