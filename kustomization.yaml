@@ -3,7 +3,8 @@ kind: Kustomization
 namespace: argo-rollouts
 resources:
 # - Blue-Green/
-- Canary/
+# - Canary/
+# - Canary-Nginx
 - ingress.yaml
 
 # https://argoproj.github.io/argo-rollouts/features/kustomize/
